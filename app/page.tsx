@@ -15,9 +15,16 @@ export default function HoloboxInterface() {
       {/* Step 1: Start Button Only */}
       {step === 1 && (
         <>
+          {/* Green top section */}
+          <div className="absolute top-0 left-0 w-full h-64 bg-green-500"></div>
+
+          {/* Green bottom section */}
+          <div className="absolute bottom-0 left-0 w-full h-64 bg-green-500"></div>
+
+          {/* Start button positioned on top of the animation */}
           <button
             onClick={handleStart}
-            className="absolute bottom-20 left-1/2 transform -translate-x-1/2 bg-transparent hover:bg-cyan-900/20 text-cyan-300 border-2 border-cyan-300 px-12 py-4 rounded-lg text-2xl font-semibold transition-all duration-200 hover:scale-105 active:scale-95 active:bg-cyan-800/30"
+            className="absolute bottom-20 left-1/2 transform -translate-x-1/2 bg-transparent hover:bg-cyan-900/20 text-cyan-300 border-2 border-cyan-300 px-12 py-4 rounded-lg text-2xl font-semibold transition-all duration-200 hover:scale-105 active:scale-95 active:bg-cyan-800/30 z-10"
           >
             Start
           </button>
@@ -28,7 +35,7 @@ export default function HoloboxInterface() {
       {step === 2 && (
         <>
           <div className="absolute left-8 top-1/2 transform -translate-y-1/2 w-96">
-            <div className="w-full h-80 p-6 text-lg border-2 border-cyan-400 rounded-lg bg-transparent text-cyan-300 overflow-y-auto">
+            <div className="w-full h-80 p-6 text-lg border-2 border-cyan-400 rounded-lg bg-transparent text-cyan-300 overflow-y-auto scrollbar-hide">
               <h3 className="text-2xl font-bold mb-4 text-center text-cyan-200">Lorem Ipsum</h3>
               <p className="mb-4 text-sm leading-relaxed">
                 "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
@@ -87,6 +94,15 @@ export default function HoloboxInterface() {
         @keyframes rotate3d {
           0% { transform: rotateX(0deg) rotateY(0deg); }
           100% { transform: rotateX(360deg) rotateY(360deg); }
+        }
+        
+        /* Added CSS to hide scrollbar while maintaining scroll functionality */
+        .scrollbar-hide {
+          -ms-overflow-style: none;  /* Internet Explorer 10+ */
+          scrollbar-width: none;  /* Firefox */
+        }
+        .scrollbar-hide::-webkit-scrollbar { 
+          display: none;  /* Safari and Chrome */
         }
       `}</style>
     </div>
