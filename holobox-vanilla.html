@@ -157,14 +157,17 @@
             height: 128px;
             position: relative;
             transform-style: preserve-3d;
+            /* Added initial 45-degree rotation to match React version */
+            transform: rotateX(45deg) rotateY(45deg);
             animation: rotate3d 4s linear infinite;
             background: linear-gradient(135deg, #34d399, #3b82f6);
             border: 2px solid #10b981;
         }
 
         @keyframes rotate3d {
-            0% { transform: rotateX(0deg) rotateY(0deg); }
-            100% { transform: rotateX(360deg) rotateY(360deg); }
+            /* Updated animation to rotate from current position */
+            0% { transform: rotateX(45deg) rotateY(45deg); }
+            100% { transform: rotateX(405deg) rotateY(405deg); }
         }
 
         /* Step visibility */
